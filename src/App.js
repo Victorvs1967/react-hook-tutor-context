@@ -1,23 +1,19 @@
-import logo from './logo.svg';
+import { createContext } from 'react';
+
+import GrandParent from './components/GrandParent';
 import './App.css';
 
-function App() {
+export const UserContext = createContext();
+export const ChannelContext = createContext();
+
+const App = () => {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <UserContext.Provider value={'Nabendu'}>
+        <ChannelContext.Provider value={'TheWebDev'}>
+          <GrandParent />
+        </ChannelContext.Provider>
+      </UserContext.Provider>
     </div>
   );
 }
